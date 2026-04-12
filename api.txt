@@ -1,3 +1,0 @@
-https://geocoding-api.open-meteo.com/v1/search?name=NOME_DA_CIDADE&count=1&language=pt&format=json 
-https://open-meteo.com/en/docs 
-https://pt.wikipedia.org/api/rest_v1/page/summary/NOME_DA_CIDADE
