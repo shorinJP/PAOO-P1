@@ -17,9 +17,13 @@ const urlGeoCoding = `${geoCodingBaseURL}?name=${name}&count=${count}&language=$
 axios.get(urlGeoCoding)
 .then(res => {
     return res.data
+}).catch(erro => {
+        console.log(`Erro: ${erro}`)
 })
 .then(data => {
     return data.results
+}).catch(erro => {
+        console.log(`Erro: ${erro}`)
 })
 .then(results => {
     console.log(results[0].latitude)
@@ -30,9 +34,8 @@ axios.get(urlGeoCoding)
     const climaTempo = async() => {
         try {
             const res = await axios.get(urlForecast)
-            //console.log(res)
             console.log(res.data.current.temperature_2m)
-            console.log(res.data.current.apparent_temperature)  
+            console.log(res.data.current.apparent_temperature)
             console.log(res.data.current.wind_speed_10m)
             const tempAtual = res.data.current.temperature_2m
             const sensacaoTermica = res.data.current.apparent_temperature
@@ -42,5 +45,6 @@ axios.get(urlGeoCoding)
         }
     }
     climaTempo()
-
+}).catch(erro => {
+        console.log(`Erro: ${erro}`)
 })
