@@ -4,6 +4,8 @@ const geoCodingBaseURL = 'https://geocoding-api.open-meteo.com/v1/search'
 
 const forecastBaseURL = 'https://api.open-meteo.com/v1/forecast'
 
+const wikiBaseURL = 'https://pt.wikipedia.org/api/rest_v1/page/summary/'
+
 const name = 'Berlin'
 
 const count = 10  
@@ -48,3 +50,21 @@ axios.get(urlGeoCoding)
 }).catch(erro => {
         console.log(`Erro: ${erro}`)
 })
+
+//Asyc await
+const urlWiki = `${wikiBaseURL}${name}`
+
+const enciclopedia = async () => {
+    try {
+        const res = await axios.get(urlWiki, { headers: { 'User-Agent': 'helloWiki@gmail.com' } })
+        console.log('titulo: ' + res.data.title)
+        console.log('resumo: ' + res.data.extract)
+        console.log("------------------------------------------------")
+
+    } catch (error) {
+        console.log(`Erro: ${error}`)
+    }
+}
+setTimeout(() => {
+    enciclopedia()
+}, 2000)
